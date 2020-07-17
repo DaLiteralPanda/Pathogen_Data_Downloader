@@ -11,8 +11,15 @@ monodnaviria = "https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=N
 
 varidnaviria = "https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=Varidnaviria,%20taxid:2732004"
 
-browser.get(duplodnaviria)
+# Type in the variable name of the virus below
+browser.get(riboviria)
 sleep(10)
+
+# Cliking the release data anchor
+release_date = "//span[@class='thead-wrapper'][text()='Release Date']"
+release_date_elem = browser.find_element_by_xpath(release_date)
+release_date_elem.click()
+sleep(3)
 
 # Encasing it in a for loop
 for i in range(0,5):
@@ -58,10 +65,11 @@ for i in range(0,5):
 
     # Clicking the checkbox again to deselect it
     checkbox_odd_elem.click()
-    sleep(1)
+    sleep(5)
     # Going to the nest page
-    next_page_btn = '//button[@aria-label="Next Page"]'
+    next_page_btn = '//div[@class="ncbi-width-static"]/button[2]'
     next_page_btn_elem = browser.find_element_by_xpath(next_page_btn)
+    sleep(3)
     next_page_btn_elem.click()
     sleep(10)
 
